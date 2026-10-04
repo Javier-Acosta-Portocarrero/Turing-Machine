@@ -3,10 +3,10 @@
 // Bachelor's Degree in Computer Engineering
 // Course: Computational Complexity
 // Year: 4th
-// Assignment 1: Pushdown Automaton
+// Assignment 2: Turing Machine
 // Author: Javier Acosta Portocarrero
-// Date: 24/09/2026
-// File pushdown_automaton.cc: implementation file.
+// Date: 04/10/2026
+// File turing_machine.cc: implementation file.
 // Contains the implementation of the TuringMachine class.
 
 #include "../include/turing_machine.h"
