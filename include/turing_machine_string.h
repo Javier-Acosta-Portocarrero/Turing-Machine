@@ -26,8 +26,8 @@ enum StringMovements {
 
 class TuringMachineString {
  public:
-  TuringMachineString(const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet);
-  TuringMachineString(const std::string& input_word, const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet);
+  TuringMachineString(const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol);
+  TuringMachineString(const std::string& input_word, const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol);
 
   Symbol GetCurrentSymbol() const;
   const std::string& GetStringRepresentation() const;
@@ -44,6 +44,8 @@ class TuringMachineString {
   // Reference to the original alphabet from the turing machine.
   const std::set<Symbol>& input_alphabet_;
   const std::set<Symbol>& string_alphabet_;
+
+  Symbol white_symbol_;
 
   bool CheckIfWholeInputWordIsInAlphabet(const std::string& input_word) const;
 };

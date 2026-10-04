@@ -14,17 +14,15 @@
 
 #include <stdexcept>
 
-const char WHITE_SYMBOL = '&';
-
 /**
  * @brief Default constructor for the TuringMachineString class.
  * 
  * @param
  * @param
  */
-TuringMachineString::TuringMachineString(const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet) 
-    : input_alphabet_{input_alphabet}, string_alphabet_{string_alphabet} {
-  inner_string_.emplace_back(WHITE_SYMBOL);
+TuringMachineString::TuringMachineString(const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol) 
+    : input_alphabet_{input_alphabet}, string_alphabet_{string_alphabet}, white_symbol_{white_symbol} {
+  inner_string_.emplace_back(white_symbol_);
   head_position_ = 0;
   head_ = inner_string_.begin();
 }
@@ -35,13 +33,13 @@ TuringMachineString::TuringMachineString(const std::set<Symbol>& input_alphabet,
  * @param input_alphabet Set of symbols that form the input alphabet.
  * @param
  */
-TuringMachineString::TuringMachineString(const std::string& input_word, const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet) 
-    : input_alphabet_{input_alphabet}, string_alphabet_{string_alphabet} {
+TuringMachineString::TuringMachineString(const std::string& input_word, const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol) 
+    : input_alphabet_{input_alphabet}, string_alphabet_{string_alphabet}, white_symbol_{white_symbol} {
   if (!CheckIfWholeInputWordIsInAlphabet(input_word)) {
     throw TuringMachineStringException("The input word contains symbols that are not in the input alphabet.");
   }
   if (input_word == "") {
-    inner_string_.emplace_back(WHITE_SYMBOL); 
+    inner_string_.emplace_back(white_symbol_); 
   } else {
     for (const Symbol& element : input_word) {
       inner_string_.emplace_back(element); 
