@@ -3,14 +3,14 @@
 // Bachelor's Degree in Computer Engineering
 // Course: Computational Complexity
 // Year: 4th
-// Assignment 1: Pushdown Automaton
+// Assignment 2: Turing Machine
 // Author: Javier Acosta Portocarrero
-// Date: 01/10/2026
-// File input_string_exception.h: declaration file.
-// Contains the declaration of the InputStringException class.
+// Date: 04/10/2026
+// File turing_machine_string_exception.h: declaration file.
+// Contains the declaration of the TuringMachineStringException class.
 
-#ifndef INPUT_STRING_EXCEPTION_H
-#define INPUT_STRING_EXCEPTION_H
+#ifndef TURING_MACHINE_STRING_EXCEPTION_H
+#define TURING_MACHINE_STRING_EXCEPTION_H
 
 #include <stdexcept>
 
