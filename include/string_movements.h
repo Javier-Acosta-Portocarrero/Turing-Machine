@@ -9,8 +9,13 @@
 // File string_movements.h: declaration file.
 // Contains the declaration of the StringMovements enum.
 
+#ifndef STRING_MOVEMENTS
+#define STRING_MOVEMENTS
+
 enum StringMovements {
   right,
   left,
   stop
 };
+
+#endif
