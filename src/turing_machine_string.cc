@@ -84,12 +84,12 @@ void TuringMachineString::MoveHead(StringMovements movement) {
     ++head_;
       ++head_position_;
       if (head_ == inner_string_.end()) {
-        inner_string_.emplace_back(WHITE_SYMBOL);
+        inner_string_.emplace_back(white_symbol_);
       }
       break;
     case left:
       if (head_ == inner_string_.begin()) {
-        inner_string_.emplace_front(WHITE_SYMBOL);
+        inner_string_.emplace_front(white_symbol_);
       }
       --head_;
       --head_position_;
