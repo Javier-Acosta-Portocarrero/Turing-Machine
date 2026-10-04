@@ -1,0 +1,27 @@
+# States
+q0 q1 q_accept
+
+# Input alphabet
+a b
+
+# String alphabet
+a b X _
+
+# Initial state
+q0
+
+# White symbol
+_
+
+# Acceptance states
+q_accept
+
+# Number of strings
+2
+
+# Transitions
+q0 a _ q0 a R X R
+q0 b _ q1 b S _ L
+
+q1 b X q1 b R _ L
+q1 _ _ q_accept _ S _ S
