@@ -108,7 +108,7 @@ void TuringMachineString::MoveHead(StringMovements movement) {
  */
 void TuringMachineString::Write(Symbol new_symbol) {
   if (!string_alphabet_.contains(symbol)) {
-    return false;
+    throw TuringMachineStringException("Can't write a symbol that doesn't belong to the string alphabet.");
   }
   *head_ = new_symbol;
 }
