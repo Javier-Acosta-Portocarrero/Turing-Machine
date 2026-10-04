@@ -15,22 +15,23 @@
 #include "string_movements.h"
 
 #include <string>
+#include <vector>
 
 using Symbol = char;
 
 class TransitionEffects {
  public:
-  TransitionEffects(const std::string& destiny_state, Symbol symbol_to_write, StringMovements head_movement) 
-      : destiny_state_{destiny_state}, symbol_to_write_{symbol_to_write}, head_movement_{head_movement} {}
+  TransitionEffects(const std::string& destiny_state, const std::vector<Symbol>& symbols_to_write, const std::vector<StringMovements>& head_movement) 
+      : destiny_state_{destiny_state}, symbols_to_write_{symbols_to_write}, head_movements_{head_movement} {}
 
   const std::string& GetDestinyState() const { return destiny_state_;}
-  Symbol GetSymbolToWrite() const { return symbol_to_write_;}
-  StringMovements GetHeadMovement() const { return head_movement_;}
+  const std::vector<Symbol>& GetSymbolToWrite() const { return symbols_to_write_;}
+  const std::vector<StringMovements>& GetHeadMovement() const { return head_movements_;}
 
  private:
   const std::string destiny_state_;
-  const Symbol symbol_to_write_;
-  const StringMovements head_movement_;
+  const std::vector<Symbol> symbols_to_write_;
+  const std::vector<StringMovements> head_movements_;
 
 };
 
