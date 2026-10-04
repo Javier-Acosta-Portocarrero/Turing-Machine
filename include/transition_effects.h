@@ -25,8 +25,8 @@ class TransitionEffects {
       : destiny_state_{destiny_state}, symbols_to_write_{symbols_to_write}, head_movements_{head_movement} {}
 
   const std::string& GetDestinyState() const { return destiny_state_;}
-  const std::vector<Symbol>& GetSymbolToWrite() const { return symbols_to_write_;}
-  const std::vector<StringMovements>& GetHeadMovement() const { return head_movements_;}
+  const std::vector<Symbol>& GetSymbolsToWrite() const { return symbols_to_write_;}
+  const std::vector<StringMovements>& GetHeadMovements() const { return head_movements_;}
 
  private:
   const std::string destiny_state_;
