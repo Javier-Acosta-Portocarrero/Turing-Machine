@@ -12,17 +12,13 @@
 #ifndef INPUT_STRING_H
 #define INPUT_STRING_H
 
+#include "string_movements.h"
+
 #include <string>
 #include <set>
 #include <list>
 
 using Symbol = char;
-
-enum StringMovements {
-  right,
-  left,
-  stop
-};
 
 class TuringMachineString {
  public:
@@ -37,6 +33,7 @@ class TuringMachineString {
   void Write(Symbol new_symbol);
 
   void IntroduceNewInputWord(const std::string& input_word);
+  void Reset();
  private:
   std::list<Symbol> inner_string_;
   unsigned head_position_ = 0;

@@ -124,3 +124,27 @@ bool TuringMachineString::CheckIfWholeInputWordIsInAlphabet(const std::string& i
   }
   return true;
 }
+
+/**
+ * 
+ */
+const std::string& TuringMachineString::GetStringRepresentation() const {
+  std::string representation = "";
+  unsigned iterator = 0;
+  for (const Symbol& element : inner_string_) {
+    if (iterator == head_position_) {
+      representation += '[' + element + ']';
+      continue;
+    }
+    representation += element;
+  }
+}
+/**
+ * 
+ */
+void TuringMachineString::Reset() {
+  inner_string_.clear();
+  inner_string_.emplace_back(white_symbol_); 
+  head_position_ = 0;
+  head_ = inner_string_.begin();
+}
