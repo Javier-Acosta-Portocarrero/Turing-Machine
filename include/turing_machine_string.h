@@ -26,7 +26,7 @@ class TuringMachineString {
   TuringMachineString(const std::string& input_word, const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol);
 
   Symbol GetCurrentSymbol() const;
-  const std::string& GetStringRepresentation() const;
+  const std::string GetStringRepresentation() const;
   unsigned GetCurrentHeadIndex() const { return head_position_;}
 
   void MoveHead(StringMovements movement);

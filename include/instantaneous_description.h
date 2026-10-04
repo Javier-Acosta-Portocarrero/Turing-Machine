@@ -21,8 +21,8 @@ struct InstantaneousDescription {
       : state_{state}, entry_symbols_{entry_symbols} {}
   
   bool operator<(const InstantaneousDescription& other_description) const;
-  
-  const std::string& state_;
+
+  const std::string state_;
   // Not a reference because it is built only to be stored here. 
   const std::string entry_symbols_;  // One symbol per string.  
 };

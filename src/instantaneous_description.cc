@@ -15,7 +15,10 @@
  * 
  */
 bool InstantaneousDescription::operator<(const InstantaneousDescription& other_description) const {
-    return state_ < other_description.state_ || entry_symbols_ < other_description.entry_symbols_;
+  if (state_ != other_description.state_) {
+    return state_ < other_description.state_;
+  }
+  return entry_symbols_ < other_description.entry_symbols_;
 }
   
 

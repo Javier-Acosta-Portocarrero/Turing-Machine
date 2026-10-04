@@ -55,6 +55,18 @@ InstantaneousDescription TuringMachine::BuildInstantaneousDescription() const {
 }
 
 /**
+ * 
+ */
+std::vector<std::string> TuringMachine::GetStringsRepresentations() const {
+  std::vector<std::string> representations;
+  for (size_t i{0}; i < amount_of_strings_; ++i) {
+    representations.emplace_back(inner_strings_[i].GetStringRepresentation());
+  }
+
+  return representations;
+}
+
+/**
  * @brief Checks if the pushdown automaton accepts the given input word.
  * @param input_word Input word to check.
  * @return true if the automaton accepts the word or false if not.
@@ -65,10 +77,16 @@ bool TuringMachine::AcceptsWord(const std::string& input_word) {
 
   const TransitionEffects* next_transition = inner_transition_function_.GetPossibleTransition(BuildInstantaneousDescription());
   while (next_transition != nullptr) {
-    std::string next_state = next_transition->GetDestinyState();
+    const std::string& next_state = next_transition->GetDestinyState();
     if (!turing_machines_states_.contains(next_state)) {
       throw TuringMachineException("Transition function contains a state that doesn't belong to turing machine possible states.");
     }
+    if (next_transition->GetSymbolsToWrite().size() != inner_strings_.size() || 
+      next_transition->GetHeadMovements().size() != inner_strings_.size()) {
+      throw TuringMachineException("Transition function effects don't match the amount of strings.");
+    }
+
+    // Main logic
     for (size_t i{0}; i < inner_strings_.size(); ++i) {
       inner_strings_[i].Write(next_transition->GetSymbolsToWrite()[i]);
       inner_strings_[i].MoveHead(next_transition->GetHeadMovements()[i]);

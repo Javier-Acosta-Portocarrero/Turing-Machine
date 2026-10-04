@@ -59,8 +59,12 @@ void TuringMachineString::IntroduceNewInputWord(const std::string& input_word) {
     throw TuringMachineStringException("The input word contains symbols that are not in the input alphabet.");
   }
   inner_string_.clear();
-  for (const Symbol& element : input_word) {
-    inner_string_.emplace_back(element); 
+  if (input_word == "") {
+    inner_string_.emplace_back(white_symbol_); 
+  } else {
+    for (const Symbol& element : input_word) {
+      inner_string_.emplace_back(element); 
+    }
   }
   head_position_ = 0;
   head_ = inner_string_.begin();
@@ -81,18 +85,20 @@ Symbol TuringMachineString::GetCurrentSymbol() const {
 void TuringMachineString::MoveHead(StringMovements movement) {
   switch (movement) {
     case right:
-    ++head_;
+      ++head_;
       ++head_position_;
       if (head_ == inner_string_.end()) {
         inner_string_.emplace_back(white_symbol_);
+        head_ = --inner_string_.end();
       }
       break;
     case left:
       if (head_ == inner_string_.begin()) {
         inner_string_.emplace_front(white_symbol_);
+      } else {
+        --head_position_;
       }
       --head_;
-      --head_position_;
       break;
     case stop:
       break;
@@ -105,7 +111,7 @@ void TuringMachineString::MoveHead(StringMovements movement) {
  * 
  */
 void TuringMachineString::Write(Symbol new_symbol) {
-  if (!string_alphabet_.contains(symbol)) {
+  if (!string_alphabet_.contains(new_symbol)) {
     throw TuringMachineStringException("Can't write a symbol that doesn't belong to the string alphabet.");
   }
   *head_ = new_symbol;
@@ -128,16 +134,20 @@ bool TuringMachineString::CheckIfWholeInputWordIsInAlphabet(const std::string& i
 /**
  * 
  */
-const std::string& TuringMachineString::GetStringRepresentation() const {
+const std::string TuringMachineString::GetStringRepresentation() const {
   std::string representation = "";
   unsigned iterator = 0;
   for (const Symbol& element : inner_string_) {
-    if (iterator == head_position_) {
-      representation += '[' + element + ']';
-      continue;
+    if (iterator++ == head_position_) {
+      representation += '[';
+      representation += element;
+      representation += ']';
+    } else {
+      representation += element;
     }
-    representation += element;
   }
+
+  return representation;
 }
 /**
  * 
