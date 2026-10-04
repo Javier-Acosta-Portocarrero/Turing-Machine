@@ -8,7 +8,8 @@ SOURCES = src/instantaneous_description.cc \
           src/turing_machine.cc \
           src/turing_machine_load/turing_machine_loader.cc \
           src/turing_machine_load/turing_machine_loader_plain_text_strategy.cc \
-          src/main.cc
+          src/main.cc \
+		  src/main_functions.cc
 
 OBJECTS = $(SOURCES:%.cc=build/%.o)
 
