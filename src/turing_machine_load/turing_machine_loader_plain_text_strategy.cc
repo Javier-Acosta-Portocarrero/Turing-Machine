@@ -30,10 +30,10 @@ TuringMachine TuringMachineLoaderPlainTextStrategy::LoadTuringMachine(const std:
   unsigned line_number = 0;
   const std::set<std::string> automaton_states = ReadStates(GetNextContentLine(input_file, line_number, "states"), line_number);
   const std::set<Symbol> input_alphabet = ReadAlphabet(GetNextContentLine(input_file, line_number, "input alphabet"), line_number, "input alphabet");
-  const std::set<Symbol> strings_alphabet = ReadAlphabet(GetNextContentLine(input_file, line_number, "string alphabet"), line_number, "string alphabet");
+  const std::set<Symbol> strings_alphabet = ReadAlphabet(GetNextContentLine(input_file, line_number, "tape alphabet"), line_number, "tape alphabet");
   for (const Symbol& symbol : input_alphabet) {
     if (!strings_alphabet.contains(symbol)) {
-      throw InputException("Line " + std::to_string(line_number) + ": Input alphabet must be contained in the string alphabet.");
+      throw InputException("Line " + std::to_string(line_number) + ": Input alphabet must be contained in the tape alphabet.");
     }
   }
 
@@ -48,7 +48,7 @@ TuringMachine TuringMachineLoaderPlainTextStrategy::LoadTuringMachine(const std:
   }
   const Symbol white_symbol = white_symbol_string[0];
   if (!strings_alphabet.contains(white_symbol)) {
-    throw InputException("Line " + std::to_string(line_number) + ": White symbol doesn't belong to the string alphabet.");
+    throw InputException("Line " + std::to_string(line_number) + ": White symbol doesn't belong to the tape alphabet.");
   }
   if (input_alphabet.contains(white_symbol)) {
     throw InputException("Line " + std::to_string(line_number) + ": White symbol can't belong to the input alphabet.");
