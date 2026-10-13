@@ -16,6 +16,7 @@
 
 #include <fstream>
 
+// Class responsible for loading a Turing machine from a plain text configuration file.
 class TuringMachineLoaderPlainTextStrategy : public TuringMachineLoaderStrategy {
  public:
   TuringMachineLoaderPlainTextStrategy() = default;

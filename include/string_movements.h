@@ -12,6 +12,7 @@
 #ifndef STRING_MOVEMENTS
 #define STRING_MOVEMENTS
 
+// Enum representing the possible movements of the head in a Turing machine tape.
 enum StringMovements {
   right,
   left,

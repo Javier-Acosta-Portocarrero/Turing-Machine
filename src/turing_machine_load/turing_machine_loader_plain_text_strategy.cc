@@ -16,7 +16,11 @@
 #include <vector>
 
 /**
+ * @brief Loads a Turing machine from a plain text configuration file.
  * 
+ * @param file_path Path to the configuration file.
+ * @return The loaded Turing machine.
+ * @throws InputException If the configuration file is invalid or cannot be opened.
  */
 TuringMachine TuringMachineLoaderPlainTextStrategy::LoadTuringMachine(const std::string& file_path) const {
   std::ifstream input_file{file_path};
@@ -75,7 +79,13 @@ TuringMachine TuringMachineLoaderPlainTextStrategy::LoadTuringMachine(const std:
 }
 
 /**
+ * @brief Reads the next non-empty line from the input file, removing comments and whitespace.
  * 
+ * @param input_file Input file stream.
+ * @param line_number Current line number in the file.
+ * @param expected_content Description of the expected content for error messages.
+ * @return The next non-empty line from the input file.
+ * @throws InputException If the end of the file is reached unexpectedly.
  */
 std::string TuringMachineLoaderPlainTextStrategy::GetNextContentLine(std::ifstream& input_file, unsigned& line_number, const std::string& expected_content) const {
   std::string line;
@@ -90,7 +100,10 @@ std::string TuringMachineLoaderPlainTextStrategy::GetNextContentLine(std::ifstre
 }
 
 /**
+ * @brief Removes comments and leading/trailing whitespace from a line.
  * 
+ * @param line The line to process.
+ * @return The processed line with comments and whitespace removed.
  */
 std::string TuringMachineLoaderPlainTextStrategy::RemoveCommentsAndWhitespace(const std::string& line) const {
   std::string processed_line = line.substr(0, line.find('#'));
@@ -103,7 +116,12 @@ std::string TuringMachineLoaderPlainTextStrategy::RemoveCommentsAndWhitespace(co
 }
 
 /**
+ * @brief Reads the set of states from a line.
  * 
+ * @param line The line containing the states.
+ * @param line_number Current line number in the file.
+ * @return The set of states.
+ * @throws InputException If the state set is empty.
  */
 std::set<std::string> TuringMachineLoaderPlainTextStrategy::ReadStates(const std::string& line, unsigned line_number) const {
   std::istringstream line_stream{line};
@@ -119,7 +137,13 @@ std::set<std::string> TuringMachineLoaderPlainTextStrategy::ReadStates(const std
 }
 
 /**
+ * @brief Reads the alphabet from a line.
  * 
+ * @param line The line containing the alphabet.
+ * @param line_number Current line number in the file.
+ * @param alphabet_name Name of the alphabet for error messages.
+ * @return The set of symbols in the alphabet.
+ * @throws InputException If the alphabet is empty or contains invalid symbols.
  */
 std::set<Symbol> TuringMachineLoaderPlainTextStrategy::ReadAlphabet(const std::string& line, unsigned line_number, const std::string& alphabet_name) const {
   std::istringstream line_stream{line};
@@ -138,7 +162,13 @@ std::set<Symbol> TuringMachineLoaderPlainTextStrategy::ReadAlphabet(const std::s
 }
 
 /**
+ * @brief Reads a single element from a line.
  * 
+ * @param line The line containing the element.
+ * @param line_number Current line number in the file.
+ * @param element_name Name of the element for error messages.
+ * @return The read element as a string.
+ * @throws InputException If the line does not contain exactly one element.
  */
 std::string TuringMachineLoaderPlainTextStrategy::ReadSingleElement(const std::string& line, unsigned line_number, const std::string& element_name) const {
   std::istringstream line_stream{line};
@@ -151,7 +181,12 @@ std::string TuringMachineLoaderPlainTextStrategy::ReadSingleElement(const std::s
 }
 
 /**
+ * @brief Reads the amount of strings from a line.
  * 
+ * @param line The line containing the amount of strings.
+ * @param line_number Current line number in the file.
+ * @return The amount of strings as an unsigned integer.
+ * @throws InputException If the amount is not a positive integer or if there are additional elements in the line.
  */
 unsigned TuringMachineLoaderPlainTextStrategy::ReadAmountOfStrings(const std::string& line, unsigned line_number) const {
   std::istringstream line_stream{line};
@@ -164,7 +199,16 @@ unsigned TuringMachineLoaderPlainTextStrategy::ReadAmountOfStrings(const std::st
 }
 
 /**
+ * @brief Reads a transition from a line and adds it to the transition function.
  * 
+ * @param line The line containing the transition.
+ * @param line_number Current line number in the file.
+ * @param transition_identifier Identifier for the transition for error messages.
+ * @param amount_of_strings Number of strings in the Turing machine.
+ * @param automaton_states Set of valid states in the Turing machine.
+ * @param strings_alphabet Set of valid symbols in the Turing machine's alphabet.
+ * @param transition_function The transition function to which the new transition will be added.
+ * @throws InputException If the transition is invalid or if there are duplicate transitions.
  */
 void TuringMachineLoaderPlainTextStrategy::ReadTransition(const std::string& line, unsigned line_number, unsigned transition_identifier,
     unsigned amount_of_strings, const std::set<std::string>& automaton_states, const std::set<Symbol>& strings_alphabet,

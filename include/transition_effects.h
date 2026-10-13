@@ -19,6 +19,8 @@
 
 using Symbol = char;
 
+// Transition effects of a Turing machine, containing the destiny state, 
+// the symbols to write in each and the head movements for each tape cell.
 class TransitionEffects {
  public:
   TransitionEffects(const std::string& destiny_state, const std::vector<Symbol>& symbols_to_write, const std::vector<StringMovements>& head_movement) 

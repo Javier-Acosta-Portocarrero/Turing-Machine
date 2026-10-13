@@ -15,6 +15,7 @@
 #include "../turing_machine.h"
 #include "turing_machine_loader_strategy.h"
 
+// Class responsible for loading a Turing machine using a specified loading strategy and configuration file.
 class TuringMachineLoader {
  public:
   TuringMachineLoader(TuringMachineLoaderStrategy* load_strategy, const std::string& file_path = "") 

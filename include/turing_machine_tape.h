@@ -6,8 +6,8 @@
 // Assignment 2: Turing Machine
 // Author: Javier Acosta Portocarrero
 // Date: 04/10/2026
-// File turing_machine_string.h: declaration file.
-// Contains the declaration of the TuringMachineString class.
+// File turing_machine_tape.h: declaration file.
+// Contains the declaration of the TuringMachineTape class.
 
 #ifndef INPUT_STRING_H
 #define INPUT_STRING_H
@@ -20,10 +20,11 @@
 
 using Symbol = char;
 
-class TuringMachineString {
+// Tape of a Turing machine, with infinite length.
+class TuringMachineTape {
  public:
-  TuringMachineString(const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol);
-  TuringMachineString(const std::string& input_word, const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol);
+  TuringMachineTape(const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol);
+  TuringMachineTape(const std::string& input_word, const std::set<Symbol>& input_alphabet, const std::set<Symbol>& string_alphabet, Symbol white_symbol);
 
   Symbol GetCurrentSymbol() const;
   const std::string GetStringRepresentation() const;

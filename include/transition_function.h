@@ -20,6 +20,8 @@
 
 using Symbol = char;
 
+// Transition function of a Turing machine, mapping instantaneous descriptions to transition effects, 
+// only with one possible transition for each instantaneous description because it is a deterministic Turing machine.
 class TransitionFunction {
  public:
   TransitionFunction() = default;

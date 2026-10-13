@@ -12,7 +12,11 @@
 #include "../include/instantaneous_description.h"
 
 /**
+ * @brief Compares two InstantaneousDescription objects for ordering.
  * 
+ * @param other_description The other InstantaneousDescription to compare with.
+ * @return true if this InstantaneousDescription is less than the other, false otherwise, 
+ *         based on lexicographical order of state and entry_symbols.
  */
 bool InstantaneousDescription::operator<(const InstantaneousDescription& other_description) const {
   if (state_ != other_description.state_) {

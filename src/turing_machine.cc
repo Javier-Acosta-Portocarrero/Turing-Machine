@@ -13,7 +13,17 @@
 #include "../include/exceptions/turing_machine_exception.h"
 
 /**
+ * @brief Constructs a Turing machine with the given parameters.
  * 
+ * @param inner_transition_function The transition function of the Turing machine.
+ * @param input_alphabet Set of symbols that form the input alphabet.
+ * @param strings_alphabet Set of symbols that form the string alphabet.
+ * @param automaton_states Set of valid states in the Turing machine.
+ * @param start_state The initial state of the Turing machine.
+ * @param amount_of_strings Number of strings in the Turing machine.
+ * @param white_symbol Symbol representing the blank symbol in the Turing machine.
+ * @param acceptance_automaton_states Set of acceptance states in the Turing machine.
+ * @throws TuringMachineException If the amount of strings is not positive or if there are inconsistencies in the transition function.
  */
 TuringMachine::TuringMachine(const TransitionFunction& inner_transition_function, 
     const std::set<Symbol>& input_alphabet, const std::set<Symbol>& strings_alphabet, 
@@ -27,27 +37,29 @@ TuringMachine::TuringMachine(const TransitionFunction& inner_transition_function
     throw TuringMachineException("A Turing Machine must have at least 1 string.");
   }
   for (unsigned i = 0; i < amount_of_strings_; ++i) {
-    inner_strings_.emplace_back(TuringMachineString(input_alphabet_, strings_alphabet_, white_symbol_));
+    inner_strings_.emplace_back(TuringMachineTape(input_alphabet_, strings_alphabet_, white_symbol_));
   }
   current_state_ = start_state_;
 }
 
 /**
- * 
+ * @brief Resets the Turing machine to its initial state, clearing all strings and setting the current state to the start state.
  */
 void TuringMachine::Reset() {
   current_state_ = start_state_;
-  for (TuringMachineString& string : inner_strings_) {
+  for (TuringMachineTape& string : inner_strings_) {
     string.Reset();
   }
 }
 
 /**
+ * @brief Builds the instantaneous description for the current state of the Turing machine.
  * 
+ * @return The instantaneous description.
  */
 InstantaneousDescription TuringMachine::BuildInstantaneousDescription() const {
   std::string entry_symbols = "";
-  for (const TuringMachineString& string : inner_strings_) {
+  for (const TuringMachineTape& string : inner_strings_) {
     entry_symbols += string.GetCurrentSymbol();
   }
 
@@ -55,7 +67,9 @@ InstantaneousDescription TuringMachine::BuildInstantaneousDescription() const {
 }
 
 /**
+ * @brief Returns the string representations of all strings in the Turing machine.
  * 
+ * @return A vector containing the string representations.
  */
 std::vector<std::string> TuringMachine::GetStringsRepresentations() const {
   std::vector<std::string> representations;
@@ -68,6 +82,7 @@ std::vector<std::string> TuringMachine::GetStringsRepresentations() const {
 
 /**
  * @brief Checks if the pushdown automaton accepts the given input word.
+ * 
  * @param input_word Input word to check.
  * @return true if the automaton accepts the word or false if not.
  */

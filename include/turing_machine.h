@@ -13,14 +13,14 @@
 #define TURING_MACHINE_H
 
 #include "transition_function.h"
-#include "turing_machine_string.h"
+#include "turing_machine_tape.h"
 #include "instantaneous_description.h"
 
 #include <vector>
 
 using Symbol = char;
 
-// Empty stack version of a pushdown automaton
+// Deterministic Turing Machine classm whit simultaneos writing and head movement, infinite tapes and stop movement.
 class TuringMachine {
  public:
   TuringMachine(const TransitionFunction& inner_transition_function, const std::set<Symbol>& input_alphabet, 
@@ -38,7 +38,7 @@ class TuringMachine {
   const std::set<Symbol> input_alphabet_;
   const std::string start_state_;
   unsigned amount_of_strings_;
-  std::vector<TuringMachineString> inner_strings_;
+  std::vector<TuringMachineTape> inner_strings_;
   Symbol white_symbol_;
   std::string current_state_;
 

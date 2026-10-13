@@ -16,6 +16,7 @@
 
 using Symbol = char;
 
+// Instantaneous description of a Turing machine, containing the current state and the head symbols from each tape.
 struct InstantaneousDescription {
   InstantaneousDescription(const std::string& state, const std::string& entry_symbols) 
       : state_{state}, entry_symbols_{entry_symbols} {}

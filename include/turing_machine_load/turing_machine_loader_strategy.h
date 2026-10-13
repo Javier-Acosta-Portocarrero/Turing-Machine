@@ -14,6 +14,7 @@
 
 #include "../turing_machine.h"
 
+// Abstract class representing a strategy for loading a Turing machine from a configuration file.
 class TuringMachineLoaderStrategy {
  public:
   virtual ~TuringMachineLoaderStrategy() = default;

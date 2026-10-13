@@ -7,16 +7,16 @@
 // Author: Javier Acosta Portocarrero
 // Date: 04/10/2026
 // File turing_machine_string_exception.h: declaration file.
-// Contains the declaration of the TuringMachineStringException class.
+// Contains the declaration of the TuringMachineStringTape class.
 
-#ifndef TURING_MACHINE_STRING_EXCEPTION_H
-#define TURING_MACHINE_STRING_EXCEPTION_H
+#ifndef TURING_MACHINE_TAPE_EXCEPTION_H
+#define TURING_MACHINE_TAPE_EXCEPTION_H
 
 #include <stdexcept>
 
-class TuringMachineStringException : public std::runtime_error {
+class TuringMachineStringTape : public std::runtime_error {
  public:
-  explicit TuringMachineStringException(const std::string& message) : std::runtime_error(message) {}
+  explicit TuringMachineStringTape(const std::string& message) : std::runtime_error(message) {}
 };
 
 #endif

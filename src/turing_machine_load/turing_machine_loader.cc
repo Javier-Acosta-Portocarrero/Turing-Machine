@@ -13,7 +13,10 @@
 #include "../../include/exceptions/input_exception.h"
 
 /**
+ * @brief Loads a Turing machine using the provided loading strategy.
  * 
+ * @return The loaded Turing machine.
+ * @throws InputException If no loading strategy or configuration file is provided.
  */
 TuringMachine TuringMachineLoader::LoadTuringMachine() const {
   if (load_strategy_ == nullptr) {

@@ -16,7 +16,14 @@
 #include <iostream>
 
 /**
+ * @brief Reads the program arguments and sets the configuration and input file paths.
  * 
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @param config_file Reference to the string where the configuration file path will be stored.
+ * @param input_file Reference to the string where the input file path will be stored.
+ * @param parameter_error Reference to a boolean that will be set to true if there is a parameter error.
+ * @throws InputException If there are missing or unknown options in the arguments.
  */
 void ReadProgramArguments(int argc, char* argv[], std::string& config_file, std::string& input_file, bool& parameter_error) {
   for (int i = 1; i < argc; ++i) {
@@ -47,7 +54,9 @@ void ReadProgramArguments(int argc, char* argv[], std::string& config_file, std:
 }
 
 /**
+ * @brief Prints the tapes of the Turing machine.
  * 
+ * @param turing_machine The Turing machine whose tapes will be printed.
  */
 void PrintTapes(const TuringMachine& turing_machine) {
   const std::vector<std::string> strings_representations = turing_machine.GetStringsRepresentations();
@@ -57,7 +66,11 @@ void PrintTapes(const TuringMachine& turing_machine) {
 }
 
 /**
+ * @brief Executes the Turing machine on input words from a file.
  * 
+ * @param turing_machine The Turing machine to execute.
+ * @param input_file Path to the file containing input words.
+ * @throws InputException If the input file cannot be opened.
  */
 void ExecuteInputFile(TuringMachine& turing_machine, const std::string& input_file) {
   std::ifstream words_file{input_file};
@@ -76,7 +89,9 @@ void ExecuteInputFile(TuringMachine& turing_machine, const std::string& input_fi
 }
 
 /**
+ * @brief Executes the Turing machine on input words from the keyboard.
  * 
+ * @param turing_machine The Turing machine to execute.
  */
 void ExecuteKeyboardInput(TuringMachine& turing_machine) {
   std::string input_word;
