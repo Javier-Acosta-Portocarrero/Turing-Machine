@@ -70,31 +70,31 @@ When introducing the strings manually, type `exit` to stop the execution.
 
 After exec
 
-## Ejercicios
+## Exercises
 
-**Primer ejercicio**: MT que reconozca el lenguaje L = { a^nb^m | m ≥ n, n > 0 }
+**First exercise**: TM that recognizes the language L = { a^nb^m | m ≥ n, n > 0 }
 
-Diagrama del diseño propuesto:\
-![primera maquina](./readme-media/ejercicio1.png)
+Proposed design diagram:\
+![first machine](./readme-media/ejercicio1.png)
 
-Descripción de sus componentes:
+Description of its components:
 
-Conjunto Q:\
+Set Q:\
 q0 q1 q2 q3 \
-Conjunto Σ:\
+Set Σ:\
 a b  \
-Conjunto Γ:\
+Set Γ:\
 a b .  \
-Estado inicial:\
+Initial state:\
 q0 \
-Símbolo blanco:\
-.  \
-Conjunto F:\
-q3  \
-Número de cintas:\
-2  
+Blank symbol:\
+.   \
+Set F:\
+q3   \
+Number of tapes:\
+2
 
-función de transición:
+transition function:
 - q0 a . q1 . R a R
 - q1 a . q1 . R a R
 - q1 b . q2 b S . L
@@ -102,29 +102,29 @@ función de transición:
 - q2 b . q3 b S . S
 - q2 . . q3 . S . S
 
-**Segundo ejercicio**: MT que reciba como parámetro una cadena compuesta por símbolos ‘a’ y ‘b’. La MT debe sustituir la cadena por el número de símbolos ‘b’, seguido del número de símbolos ‘a’ separados por un símbolo blanco. El número se codificará como n = 1^n.
+**Second exercise**: TM that receives as a parameter a string composed of symbols ‘a’ and ‘b’. The TM must replace the string with the number of ‘b’ symbols, followed by the number of ‘a’ symbols separated by a blank symbol. The number will be encoded as n = 1^n.
 
-Diagrama del diseño propuesto:\
-![segunda maquina](./readme-media/ejercicio2.png)
+Proposed design diagram:\
+![second machine](./readme-media/ejercicio2.png)
 
-Descripción de sus componentes:
+Description of its components:
 
-Conjunto Q:\
-q0 q1 q2 q3 q4 q5 q6 q7  \
-Conjunto Σ:\
+Set Q:\
+q0 q1 q2 q3 q4 q5 q6 q7   \
+Set Σ:\
 a b \
-Conjunto Γ:\
-a b 1 0 .  \
-Estado inicial:\
+Set Γ:\
+a b 1 0 .   \
+Initial state:\
 q0 \
-Símbolo blanco:\
+Blank symbol:\
 . \
-Conjunto F:\
+Set F:\
 q7 \
-Número de cintas:\
-3  
+Number of tapes:\
+3
 
-Función de transición:
+Transition function:
 - q0 a . . q0 . R . S a R
 - q0 b . . q0 . R b R . S
 - q0 . . . q1 . S . L . L
