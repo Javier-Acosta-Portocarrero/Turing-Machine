@@ -75,7 +75,7 @@ After exec
 **Primer ejercicio**: MT que reconozca el lenguaje L = { a^nb^m | m ≥ n, n > 0 }
 
 Diagrama del diseño propuesto:
-[primera_maquina](./readme-media/ejercicio1.png)
+![primera_maquina](./readme-media/ejercicio1.png)
 
 Descripción de sus componentes:
 
@@ -97,7 +97,7 @@ q2 . . q3 . S . S
 **Segundo ejercicio**: MT que reciba como parámetro una cadena compuesta por símbolos ‘a’ y ‘b’. La MT debe sustituir la cadena por el número de símbolos ‘b’, seguido del número de símbolos ‘a’ separados por un símbolo blanco. El número se codificará como n = 1^n.
 
 Diagrama del diseño propuesto:
-[primera_maquina](./readme-media/ejercicio2.png)
+![primera_maquina](./readme-media/ejercicio2.png)
 
 Descripción de sus componentes:
 
