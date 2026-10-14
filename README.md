@@ -69,3 +69,59 @@ Each parameter has the following meaning:
 When introducing the strings manually, type `exit` to stop the execution.
 
 After exec
+
+## Ejercicios
+
+**Primer ejercicio**: MT que reconozca el lenguaje L = { a^nb^m | m ≥ n, n > 0 }
+
+Diagrama del diseño propuesto:
+[primera_maquina](./readme-media/ejercicio1.png)
+
+Descripción de sus componentes:
+
+q0 q1 q2 q3 # conjunto Q
+a b  # conjunto Σ
+a b .  # conjunto Γ
+q0  # estado inicial
+.  # símbolo blanco
+q3  # conjunto F
+2  # número de cintas
+\# función de transición:
+q0 a . q1 . R a R
+q1 a . q1 . R a R
+q1 b . q2 b S . L
+q2 b a q2 . R . L
+q2 b . q3 b S . S
+q2 . . q3 . S . S
+
+**Segundo ejercicio**: MT que reciba como parámetro una cadena compuesta por símbolos ‘a’ y ‘b’. La MT debe sustituir la cadena por el número de símbolos ‘b’, seguido del número de símbolos ‘a’ separados por un símbolo blanco. El número se codificará como n = 1^n.
+
+Diagrama del diseño propuesto:
+[primera_maquina](./readme-media/ejercicio2.png)
+
+Descripción de sus componentes:
+
+q0 q1 q2 q3 q4 q5 q6 q7  # conjunto Q
+a b  # conjunto Σ
+a b 1 0 .  # conjunto Γ
+q0  # estado inicial
+.  # símbolo blanco
+q7  # conjunto F
+3  # número de cintas
+\# función de transición:
+q0 a . . q0 . R . S a R
+q0 b . . q0 . R b R . S
+q0 . . . q1 . S . L . L
+q1 . b a q2 1 L b S . L
+q1 . . a q2 1 L . S . L
+q1 . b . q3 0 L b S . S
+q1 . . . q4 0 L . S . S
+q2 . b a q2 1 L b S . L
+q2 . . a q2 1 L . S . L
+q2 . . . q5 . L . S . S
+q2 . b . q6 . L b S . S
+q3 . b . q6 . L b S . S
+q4 . . . q5 . L . S . S
+q5 . . . q6 0 S . S . S
+q6 . b . q6 1 L . L . S
+q6 . . . q7 . R . S . S
