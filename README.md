@@ -74,30 +74,24 @@ After exec
 
 **Primer ejercicio**: MT que reconozca el lenguaje L = { a^nb^m | m ≥ n, n > 0 }
 
-Diagrama del diseño propuesto:
+Diagrama del diseño propuesto:\
 ![primera maquina](./readme-media/ejercicio1.png)
 
 Descripción de sus componentes:
 
-Conjunto Q
-q0 q1 q2 q3 
-
-Conjunto Σ
-a b  
-
-Conjunto Γ
-a b .  
-
-Estado inicial
-q0 
-
-Símbolo blanco
-.  
-
-Conjunto F
-q3  
-
-Número de cintas
+Conjunto Q:\
+q0 q1 q2 q3 \
+Conjunto Σ:\
+a b  \
+Conjunto Γ:\
+a b .  \
+Estado inicial:\
+q0 \
+Símbolo blanco:\
+.  \
+Conjunto F:\
+q3  \
+Número de cintas:\
 2  
 
 función de transición:
@@ -110,46 +104,40 @@ función de transición:
 
 **Segundo ejercicio**: MT que reciba como parámetro una cadena compuesta por símbolos ‘a’ y ‘b’. La MT debe sustituir la cadena por el número de símbolos ‘b’, seguido del número de símbolos ‘a’ separados por un símbolo blanco. El número se codificará como n = 1^n.
 
-Diagrama del diseño propuesto:
+Diagrama del diseño propuesto:\
 ![segunda maquina](./readme-media/ejercicio2.png)
 
 Descripción de sus componentes:
 
-Conjunto Q
-q0 q1 q2 q3 q4 q5 q6 q7  
-
-Conjunto Σ
-a b 
-
-Conjunto Γ
-a b 1 0 .  
-
-Estado inicial
-q0 
-
-Símbolo blanco
-. 
-
-Conjunto F
-q7 
-
-Número de cintas
+Conjunto Q:\
+q0 q1 q2 q3 q4 q5 q6 q7  \
+Conjunto Σ:\
+a b \
+Conjunto Γ:\
+a b 1 0 .  \
+Estado inicial:\
+q0 \
+Símbolo blanco:\
+. \
+Conjunto F:\
+q7 \
+Número de cintas:\
 3  
 
 Función de transición:
-q0 a . . q0 . R . S a R
-q0 b . . q0 . R b R . S
-q0 . . . q1 . S . L . L
-q1 . b a q2 1 L b S . L
-q1 . . a q2 1 L . S . L
-q1 . b . q3 0 L b S . S
-q1 . . . q4 0 L . S . S
-q2 . b a q2 1 L b S . L
-q2 . . a q2 1 L . S . L
-q2 . . . q5 . L . S . S
-q2 . b . q6 . L b S . S
-q3 . b . q6 . L b S . S
-q4 . . . q5 . L . S . S
-q5 . . . q6 0 S . S . S
-q6 . b . q6 1 L . L . S
-q6 . . . q7 . R . S . S
+- q0 a . . q0 . R . S a R
+- q0 b . . q0 . R b R . S
+- q0 . . . q1 . S . L . L
+- q1 . b a q2 1 L b S . L
+- q1 . . a q2 1 L . S . L
+- q1 . b . q3 0 L b S . S
+- q1 . . . q4 0 L . S . S
+- q2 . b a q2 1 L b S . L
+- q2 . . a q2 1 L . S . L
+- q2 . . . q5 . L . S . S
+- q2 . b . q6 . L b S . S
+- q3 . b . q6 . L b S . S
+- q4 . . . q5 . L . S . S
+- q5 . . . q6 0 S . S . S
+- q6 . b . q6 1 L . L . S
+- q6 . . . q7 . R . S . S
