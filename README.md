@@ -86,7 +86,8 @@ q0  # estado inicial
 .  # símbolo blanco
 q3  # conjunto F
 2  # número de cintas
-\# función de transición:
+
+función de transición:
 q0 a . q1 . R a R
 q1 a . q1 . R a R
 q1 b . q2 b S . L
@@ -108,7 +109,8 @@ q0  # estado inicial
 .  # símbolo blanco
 q7  # conjunto F
 3  # número de cintas
-\# función de transición:
+
+Función de transición:
 q0 a . . q0 . R . S a R
 q0 b . . q0 . R b R . S
 q0 . . . q1 . S . L . L
