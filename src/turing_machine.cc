@@ -34,7 +34,7 @@ TuringMachine::TuringMachine(const TransitionFunction& inner_transition_function
       start_state_{start_state}, amount_of_strings_{amount_of_strings}, white_symbol_{white_symbol} {
 
   if (amount_of_strings <= 0) {
-    throw TuringMachineException("A Turing Machine must have at least 1 string.");
+    throw TuringMachineException("A Turing Machine must have at least 1 tape.");
   }
   for (unsigned i = 0; i < amount_of_strings_; ++i) {
     inner_strings_.emplace_back(TuringMachineTape(input_alphabet_, strings_alphabet_, white_symbol_));
