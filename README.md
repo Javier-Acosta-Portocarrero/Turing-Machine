@@ -110,7 +110,7 @@ Proposed design diagram:\
 Description of its components:
 
 Set Q:\
-q0 q1 q2 q3 q4 q5 q6 q7   \
+q0 q1 q2 q3 q4 q5 q6   \
 Set Σ:\
 a b \
 Set Γ:\
@@ -120,7 +120,7 @@ q0 \
 Blank symbol:\
 . \
 Set F:\
-q7 \
+q6 \
 Number of tapes:\
 3
 
@@ -140,4 +140,4 @@ Transition function:
 - q4 . . . q5 . L . S . S
 - q5 . . . q6 0 S . S . S
 - q6 . b . q6 1 L . L . S
-- q6 . . . q7 . R . S . S
+- q6 . . . q6 . R . S . S
