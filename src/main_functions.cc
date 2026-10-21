@@ -13,6 +13,7 @@
 #include "../include/exceptions/input_exception.h"
 
 #include <fstream>
+#include <sstream>
 #include <iostream>
 
 /**
@@ -97,7 +98,7 @@ void ExecuteKeyboardInput(TuringMachine& turing_machine) {
   std::string input_word;
   while (true) {
     std::cout << "\nInput word (type exit to finish): ";
-    std::cin >> input_word;
+    std::getline(std::cin, input_word);
     if (input_word == "exit") {
       break;
     }
