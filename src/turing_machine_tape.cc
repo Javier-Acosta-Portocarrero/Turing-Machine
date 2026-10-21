@@ -85,7 +85,7 @@ Symbol TuringMachineTape::GetCurrentSymbol() const {
  * 
  * @param movement The direction to move the head.
  */
-void TuringMachineTape::MoveHead(StringMovements movement) {
+void TuringMachineTape::MoveHead(TapeMovements movement) {
   switch (movement) {
     case right:
       ++head_;

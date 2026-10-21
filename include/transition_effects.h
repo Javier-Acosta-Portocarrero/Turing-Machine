@@ -12,7 +12,7 @@
 #ifndef TRANSITION_EFFECT_H
 #define TRANSITION_EFFECT_H
 
-#include "string_movements.h"
+#include "tape_movements.h"
 
 #include <string>
 #include <vector>
@@ -23,17 +23,17 @@ using Symbol = char;
 // the symbols to write in each and the head movements for each tape cell.
 class TransitionEffects {
  public:
-  TransitionEffects(const std::string& destiny_state, const std::vector<Symbol>& symbols_to_write, const std::vector<StringMovements>& head_movement) 
+  TransitionEffects(const std::string& destiny_state, const std::vector<Symbol>& symbols_to_write, const std::vector<TapeMovements>& head_movement) 
       : destiny_state_{destiny_state}, symbols_to_write_{symbols_to_write}, head_movements_{head_movement} {}
 
   const std::string& GetDestinyState() const { return destiny_state_;}
   const std::vector<Symbol>& GetSymbolsToWrite() const { return symbols_to_write_;}
-  const std::vector<StringMovements>& GetHeadMovements() const { return head_movements_;}
+  const std::vector<TapeMovements>& GetHeadMovements() const { return head_movements_;}
 
  private:
   const std::string destiny_state_;
   const std::vector<Symbol> symbols_to_write_;
-  const std::vector<StringMovements> head_movements_;
+  const std::vector<TapeMovements> head_movements_;
 
 };
 

@@ -7,13 +7,13 @@
 // Author: Javier Acosta Portocarrero
 // Date: 04/10/2026
 // File string_movements.h: declaration file.
-// Contains the declaration of the StringMovements enum.
+// Contains the declaration of the TapeMovements enum.
 
-#ifndef STRING_MOVEMENTS
-#define STRING_MOVEMENTS
+#ifndef TAPE_MOVEMENTS
+#define TAPE_MOVEMENTS
 
 // Enum representing the possible movements of the head in a Turing machine tape.
-enum StringMovements {
+enum TapeMovements {
   right,
   left,
   stop

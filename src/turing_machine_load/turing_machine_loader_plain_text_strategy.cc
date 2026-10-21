@@ -242,7 +242,7 @@ void TuringMachineLoaderPlainTextStrategy::ReadTransition(const std::string& lin
     throw InputException("Line " + std::to_string(line_number) + ": Destiny state '" + destiny_state + "' doesn't belong to the set of states.");
   }
   std::vector<Symbol> symbols_to_write;
-  std::vector<StringMovements> head_movements;
+  std::vector<TapeMovements> head_movements;
   unsigned effects_start = amount_of_strings + 2;
   for (unsigned i = 0; i < amount_of_strings; ++i) {
     const std::string& write_symbol = elements[effects_start + i * 2];

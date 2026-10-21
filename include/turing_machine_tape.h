@@ -12,7 +12,7 @@
 #ifndef INPUT_STRING_H
 #define INPUT_STRING_H
 
-#include "string_movements.h"
+#include "tape_movements.h"
 
 #include <string>
 #include <set>
@@ -30,7 +30,7 @@ class TuringMachineTape {
   const std::string GetStringRepresentation() const;
   unsigned GetCurrentHeadIndex() const { return head_position_;}
 
-  void MoveHead(StringMovements movement);
+  void MoveHead(TapeMovements movement);
   void Write(Symbol new_symbol);
 
   void IntroduceNewInputWord(const std::string& input_word);
