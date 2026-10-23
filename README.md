@@ -80,7 +80,7 @@ Proposed design diagram:\
 Description of its components:
 
 Set Q:\
-q0 q1 q2 q3 \
+q0 q1 q2 q3 q4 \
 Set Σ:\
 a b  \
 Set Γ:\
@@ -90,7 +90,7 @@ q0 \
 Blank symbol:\
 .   \
 Set F:\
-q3   \
+q4   \
 Number of tapes:\
 2
 
@@ -101,6 +101,8 @@ transition function:
 - q2 b a q2 . R . L
 - q2 b . q3 b S . S
 - q2 . . q3 . S . S
+- q3 b . q3 b R . S
+- q3 . . q4 . S . S
 
 **Second exercise**: TM that receives as a parameter a string composed of symbols ‘a’ and ‘b’. The TM must replace the string with the number of ‘b’ symbols, followed by the number of ‘a’ symbols separated by a blank symbol. The number will be encoded as n = 1^n.
 
